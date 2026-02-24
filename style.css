@@ -1,0 +1,69 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+.page {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.active { display: flex !important; }
+
+/* Backgrounds */
+#page1 { background-image: url('moon.jpg'); }
+#page2 { background-image: url('no.jpg'); }
+#page3 { background-image: url('yes.jpg'); }
+
+/* Text Styles */
+.main-title { font-size: 4rem; color: #ff4d4d; text-shadow: 2px 2px 10px rgba(0,0,0,0.7); }
+.overlay-box, .final-card {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 85%;
+}
+
+/* --- Slow Motion Animation --- */
+.animate-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease forwards;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Line by line delay */
+.animate-text:nth-child(1) { animation-delay: 1s; }
+.animate-text:nth-child(2) { animation-delay: 3.5s; }
+.animate-text:nth-child(3) { animation-delay: 6s; }
+.animate-text:nth-child(4) { animation-delay: 8.5s; }
+.animate-text:nth-child(5) { animation-delay: 11s; }
+.animate-text:nth-child(6) { animation-delay: 13.5s; }
+.close-btn { animation-delay: 16s; background: red; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; margin-top: 15px; }
+
+button {
+    padding: 10px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 50px;
+    border: none;
+    transition: 0.3s;
+}
+button:hover { transform: scale(1.1); background: #ff4d4d; color: white; }
