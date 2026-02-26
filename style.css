@@ -1,10 +1,13 @@
+/* Universal Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body, html {
     height: 100%;
+    width: 100%;
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    color: white;
+    color: white !important;
     overflow: hidden;
+    background-color: black;
 }
 
 .page {
@@ -18,24 +21,30 @@ body, html {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .active { display: flex !important; }
 
-/* Backgrounds */
+/* Background Images */
 #page1 { background-image: url('moon.jpg'); }
 #page2 { background-image: url('no.jpg'); }
 #page3 { background-image: url('yes.jpg'); }
 
-/* Letter Body with Scroll */
-.letter-body {
-    background: rgba(0, 0, 0, 0.8);
+/* Text Containers */
+.center-box, .letter-body {
+    background: rgba(0, 0, 0, 0.85);
     padding: 30px;
     border-radius: 20px;
     max-width: 90%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.letter-body {
     max-height: 85vh; 
     overflow-y: auto; 
-    border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     flex-direction: column;
 }
@@ -48,48 +57,60 @@ body, html {
 .animate-text {
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUp 1.5s ease forwards;
+    animation: fadeInUp 1.2s ease forwards;
     margin-bottom: 25px;
     font-size: 1.1rem;
     line-height: 1.6;
+    color: white !important;
 }
 
 @keyframes fadeInUp {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Har Line Ka Sahi Delay (Total 12 Lines) --- */
-.animate-text:nth-child(1) { animation-delay: 1s; }
-.animate-text:nth-child(2) { animation-delay: 4s; }
-.animate-text:nth-child(3) { animation-delay: 7s; }
-.animate-text:nth-child(4) { animation-delay: 10s; }
-.animate-text:nth-child(5) { animation-delay: 13s; }
-.animate-text:nth-child(6) { animation-delay: 16s; }
-.animate-text:nth-child(7) { animation-delay: 19s; }
-.animate-text:nth-child(8) { animation-delay: 22s; }
-.animate-text:nth-child(9) { animation-delay: 25s; }
-.animate-text:nth-child(10) { animation-delay: 28s; }
-.animate-text:nth-child(11) { animation-delay: 31s; }
+/* --- Precise Timing for 12 Lines --- */
+.animate-text:nth-of-type(1) { animation-delay: 1s; }
+.animate-text:nth-of-type(2) { animation-delay: 4s; }
+.animate-text:nth-of-type(3) { animation-delay: 7s; }
+.animate-text:nth-of-type(4) { animation-delay: 10s; }
+.animate-text:nth-of-type(5) { animation-delay: 13s; }
+.animate-text:nth-of-type(6) { animation-delay: 16s; }
+.animate-text:nth-of-type(7) { animation-delay: 19s; }
+.animate-text:nth-of-type(8) { animation-delay: 22s; }
+.animate-text:nth-of-type(9) { animation-delay: 25s; }
+.animate-text:nth-of-type(10) { animation-delay: 28s; }
+.animate-text:nth-of-type(11) { animation-delay: 31s; }
+.animate-text:nth-of-type(12) { animation-delay: 34s; } /* FEE AMANILLAH */
 
-/* 12th Line: FEE AMANILLAH ❤️ (Ab ye last mein aayegi) */
-.animate-text:nth-child(12) { animation-delay: 34s; }
-
-/* --- CLOSE BUTTON --- 
-Sabse aakhiri line ke bhi 3 second baad aayega */
-button[onclick="home()"] {
-    opacity: 0;
-    animation: fadeInUp 1.5s ease forwards;
-    animation-delay: 37s; 
-    padding: 10px 30px;
-    font-size: 1rem;
+/* --- Button Styles (Design Fixed) --- */
+button {
+    padding: 12px 35px;
+    font-size: 1.1rem;
     cursor: pointer;
-    margin: 20px auto 0 auto;
+    margin: 15px 10px;
     border-radius: 50px;
-    border: none;
-    background: white;
-    color: black;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
     font-weight: bold;
-    display: block;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
 }
 
-button:hover { background: red !important; color: white !important; transform: scale(1.1); }
+button:hover { 
+    background: #ff0000; 
+    border-color: #ff0000;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+/* Specific Close Button Timing on Page 3 */
+#page3 button {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 38s; /* FEE AMANILLAH ke baad */
+    margin-top: 20px;
+    background: white;
+    color: black;
+    border: none;
+}
