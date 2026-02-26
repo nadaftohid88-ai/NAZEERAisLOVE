@@ -1,93 +1,85 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: white;
+    overflow: hidden;
 }
 
-/* pages */
 .page {
     display: none;
     height: 100vh;
-}
-
-.page.active {
-    display: block;
-}
-
-/* page backgrounds */
-
-#page1 {
-    background: url("moon.jpg") no-repeat center center;
+    width: 100%;
     background-size: cover;
-}
-
-#page2 {
-    background: url("no.jpg") no-repeat center center;
-    background-size: cover;
-}
-
-#page3 {
-    background: url("yes.jpg") no-repeat center center;
-    background-size: cover;
-}
-
-
-/* text */
-
-.main-title {
-    color: white;
-    text-align: center;
-    margin-top: 100px;
-    font-size: 40px;
-}
-
-.intro-text {
-    color: white;
-    text-align: center;
-    font-size: 20px;
-}
-
-.buttons {
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 18px;
-    margin: 10px;
-    cursor: pointer;
-}
+.active { display: flex !important; }
 
-/* letter */
+/* Backgrounds */
+#page1 { background-image: url('moon.jpg'); }
+#page2 { background-image: url('no.jpg'); }
+#page3 { background-image: url('yes.jpg'); }
 
+/* Letter Body with Scroll - Special fix for many lines */
 .letter-body {
-    color: white;
-    padding: 40px;
-    height: 100vh;
-    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 90%;
+    max-height: 80vh; 
+    overflow-y: auto; /* Isse scroll bar aa jayega */
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Scrollbar Style */
+.letter-body::-webkit-scrollbar { width: 4px; }
+.letter-body::-webkit-scrollbar-thumb { background: red; border-radius: 10px; }
 
-/* animation */
-
+/* Animation Logic */
 .animate-text {
     opacity: 0;
-    animation: fadeIn 1s forwards;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease forwards;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
-.animate-text:nth-child(1){animation-delay:1s;}
-.animate-text:nth-child(2){animation-delay:2s;}
-.animate-text:nth-child(3){animation-delay:3s;}
-.animate-text:nth-child(4){animation-delay:4s;}
-.animate-text:nth-child(5){animation-delay:5s;}
-.animate-text:nth-child(6){animation-delay:6s;}
-.animate-text:nth-child(7){animation-delay:7s;}
-.animate-text:nth-child(8){animation-delay:8s;}
-.animate-text:nth-child(9){animation-delay:9s;}
-.animate-text:nth-child(10){animation-delay:10s;}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
 }
+
+/* Timings - Har line 2.5 seconds ke gap par */
+.animate-text:nth-child(1) { animation-delay: 1s; }
+.animate-text:nth-child(2) { animation-delay: 3.5s; }
+.animate-text:nth-child(3) { animation-delay: 6s; }
+.animate-text:nth-child(4) { animation-delay: 8.5s; }
+.animate-text:nth-child(5) { animation-delay: 11s; }
+.animate-text:nth-child(6) { animation-delay: 13.5s; }
+.animate-text:nth-child(7) { animation-delay: 16s; }
+.animate-text:nth-child(8) { animation-delay: 18.5s; }
+.animate-text:nth-child(9) { animation-delay: 21s; }
+.animate-text:nth-child(10) { animation-delay: 23.5s; }
+.animate-text:nth-child(11) { animation-delay: 26s; }
+.animate-text:nth-child(12) { animation-delay: 28.5s; }
+
+button {
+    padding: 10px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 15px;
+    border-radius: 50px;
+    border: none;
+    background: white;
+    color: black;
+    font-weight: bold;
+    transition: 0.3s;
+}
+button:hover { background: red; color: white; transform: scale(1.1); }
