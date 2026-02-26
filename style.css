@@ -58,7 +58,7 @@ body, html {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Line by Line Timing --- */
+/* --- Har Line Ka Sahi Delay (Total 12 Lines) --- */
 .animate-text:nth-child(1) { animation-delay: 1s; }
 .animate-text:nth-child(2) { animation-delay: 4s; }
 .animate-text:nth-child(3) { animation-delay: 7s; }
@@ -71,12 +71,12 @@ body, html {
 .animate-text:nth-child(10) { animation-delay: 28s; }
 .animate-text:nth-child(11) { animation-delay: 31s; }
 
-/* Sabse aakhiri emotional line */
+/* 12th Line: FEE AMANILLAH ❤️ (Ab ye last mein aayegi) */
 .animate-text:nth-child(12) { animation-delay: 34s; }
 
 /* --- CLOSE BUTTON --- 
-Isse maine last line ke baad (37th second par) set kiya hai */
-.letter-body button {
+Sabse aakhiri line ke bhi 3 second baad aayega */
+button[onclick="home()"] {
     opacity: 0;
     animation: fadeInUp 1.5s ease forwards;
     animation-delay: 37s; 
@@ -89,7 +89,7 @@ Isse maine last line ke baad (37th second par) set kiya hai */
     background: white;
     color: black;
     font-weight: bold;
-    display: block; /* Center align ke liye */
+    display: block;
 }
 
 button:hover { background: red !important; color: white !important; transform: scale(1.1); }
