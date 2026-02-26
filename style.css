@@ -27,22 +27,24 @@ body, html {
 #page2 { background-image: url('no.jpg'); }
 #page3 { background-image: url('yes.jpg'); }
 
-/* Letter Body with Scroll - Special fix for many lines */
+/* Letter Body with Scroll */
 .letter-body {
     background: rgba(0, 0, 0, 0.8);
     padding: 30px;
     border-radius: 20px;
     max-width: 90%;
-    max-height: 80vh; 
-    overflow-y: auto; /* Isse scroll bar aa jayega */
+    max-height: 85vh; 
+    overflow-y: auto; 
     border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
 }
 
 /* Scrollbar Style */
 .letter-body::-webkit-scrollbar { width: 4px; }
 .letter-body::-webkit-scrollbar-thumb { background: red; border-radius: 10px; }
 
-/* Animation Logic */
+/* Animation Effect */
 .animate-text {
     opacity: 0;
     transform: translateY(20px);
@@ -56,30 +58,38 @@ body, html {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Timings - Har line 2.5 seconds ke gap par */
+/* --- Line by Line Timing --- */
 .animate-text:nth-child(1) { animation-delay: 1s; }
-.animate-text:nth-child(2) { animation-delay: 3.5s; }
-.animate-text:nth-child(3) { animation-delay: 6s; }
-.animate-text:nth-child(4) { animation-delay: 8.5s; }
-.animate-text:nth-child(5) { animation-delay: 11s; }
-.animate-text:nth-child(6) { animation-delay: 13.5s; }
-.animate-text:nth-child(7) { animation-delay: 16s; }
-.animate-text:nth-child(8) { animation-delay: 18.5s; }
-.animate-text:nth-child(9) { animation-delay: 21s; }
-.animate-text:nth-child(10) { animation-delay: 23.5s; }
-.animate-text:nth-child(11) { animation-delay: 26s; }
-.animate-text:nth-child(12) { animation-delay: 28.5s; }
+.animate-text:nth-child(2) { animation-delay: 4s; }
+.animate-text:nth-child(3) { animation-delay: 7s; }
+.animate-text:nth-child(4) { animation-delay: 10s; }
+.animate-text:nth-child(5) { animation-delay: 13s; }
+.animate-text:nth-child(6) { animation-delay: 16s; }
+.animate-text:nth-child(7) { animation-delay: 19s; }
+.animate-text:nth-child(8) { animation-delay: 22s; }
+.animate-text:nth-child(9) { animation-delay: 25s; }
+.animate-text:nth-child(10) { animation-delay: 28s; }
+.animate-text:nth-child(11) { animation-delay: 31s; }
 
-button {
+/* Sabse aakhiri emotional line */
+.animate-text:nth-child(12) { animation-delay: 34s; }
+
+/* --- CLOSE BUTTON --- 
+Isse maine last line ke baad (37th second par) set kiya hai */
+.letter-body button {
+    opacity: 0;
+    animation: fadeInUp 1.5s ease forwards;
+    animation-delay: 37s; 
     padding: 10px 30px;
     font-size: 1rem;
     cursor: pointer;
-    margin: 15px;
+    margin: 20px auto 0 auto;
     border-radius: 50px;
     border: none;
     background: white;
     color: black;
     font-weight: bold;
-    transition: 0.3s;
+    display: block; /* Center align ke liye */
 }
-button:hover { background: red; color: white; transform: scale(1.1); }
+
+button:hover { background: red !important; color: white !important; transform: scale(1.1); }
